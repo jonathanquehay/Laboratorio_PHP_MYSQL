@@ -1,14 +1,17 @@
 <?php
   require('conexion.php');
 
-  //$id=$_POST['id'];
-  $datoanterior=$_GET['a'];
+  $id=$_POST['id'];
+  //$datoanterior=$_POST['id'];
   $nombre=$_POST['nombre'];
   $correo=$_POST['correo'];
 
-  $consulta="UPDATE usuarios SET nombre='$nombre',correo='$correo' WHERE nombre='$datoanterior'";
+  //var_dump($_POST);
+
+  $consulta="UPDATE usuarios SET nombre='$nombre',correo='$correo' WHERE id='$id'";
   $resultado=$mysqli->query($consulta);
-  header("Location: ../index.php"); 
+  header("Location: ../index.php");
   exit(); 
+  
 
 ?>

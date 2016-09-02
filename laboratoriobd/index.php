@@ -36,7 +36,7 @@
         <td><?php echo $fila['id']; ?></td>
         <td><?php echo $fila['nombre']; ?></td>
         <td><?php echo $fila['correo']; ?></td>
-        <td><a href="#modal-md<?php echo $fila['nombre']; ?>" role="button" data-toggle="modal">Modificar</a></td>
+        <td><a href="#modal-md<?php echo $fila['id']; ?>" role="button" data-toggle="modal">Modificar</a></td>
         <td><a href="inc/eliminar.php?id=<?php echo $fila['id'];?>">Eliminar</a></td>
       </tr>
 
@@ -44,7 +44,7 @@
 
 <!-- formulario modificar -->
 
-  <div class="modal fade" id="modal-md<?php echo $fila['nombre']; ?>">
+  <div class="modal fade" id="modal-md<?php echo $fila['id']; ?>">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -53,8 +53,9 @@
         </div>
         <div class="modal-body">
           
-          <form action="inc/modificarusuario.php?a=<?php echo $fila['nombre']; ?>" method="POST" role="form" name="nuevousuario">            
+          <form action="inc/modificarusuario.php" method="POST" role="form" name="nuevousuario">            
             <div class="form-group">
+            <input type="text" class="form-control" name="id" value="<?php echo $fila['id']; ?>" readonly style="display:none">
               <label for="">Nombre</label>
               <input type="text" class="form-control" name="nombre" value="<?php echo $fila['nombre']; ?>" id="" placeholder="Ingrese su nombre">
             </div>
